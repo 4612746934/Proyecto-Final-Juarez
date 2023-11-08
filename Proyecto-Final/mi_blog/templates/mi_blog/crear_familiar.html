@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+
+{% block contenido %}
+<title>Crear Familiar</title>
+<h1>Crear familiar</h1>
+
+<form action="{% url "mi_blog:crear_familiar" %}" method="post">
+    {% csrf_token %}
+    {{form.as_p}}
+    <button type="submit">Guardar familiar</button>
+</form>
+
+
+{% endblock contenido %}

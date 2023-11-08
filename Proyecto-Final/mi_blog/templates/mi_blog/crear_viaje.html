@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+
+{% block contenido %}
+<title>Crear Viaje</title>
+<h1>Crear Viaje</h1>
+
+<form action="{% url 'mi_blog:crear_viaje' %}" method="post">
+    {% csrf_token %}
+    {{form.as_p}}
+    <button type="submit">Guardar Viaje</button>
+</form>
+
+{% endblock contenido %}

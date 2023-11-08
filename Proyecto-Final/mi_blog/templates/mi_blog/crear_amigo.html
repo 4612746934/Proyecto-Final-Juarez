@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+
+{% block contenido %}
+<title>Crear Amigos</title>
+<h1>Crear Amigo</h1>
+
+<form action="{% url 'mi_blog:crear_amigo' %}" method="post">
+    {% csrf_token %}
+    {{form.as_p}}
+    <button type="submit">Guardar Amigo</button>
+</form>
+
+{% endblock contenido %}
