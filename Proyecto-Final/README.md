@@ -1,4 +1,4 @@
-# Tercera-PreEntrega-Juarez
+# Proyecto-Final-Juarez
 Tabajo de Practica 
 
 # Blog Personal
