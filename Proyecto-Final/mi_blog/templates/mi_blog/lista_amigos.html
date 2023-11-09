@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+
+{% block titulo %}
+<title>Lista de Amigos</title>
+{% endblock titulo %}
+
+{% block contenido %}
+<h1 style="color:red;">
+    Bienvenidos, les saluda Arian
+</h1>
+  
+<h3>Amigos guardados:</h3>
+
+<table class="table">
+  <tbody>
+    <tr>
+      <th>ID</th>
+      <th>Apellido</th>
+      <th>Nombre</th>
+      <th>Nivel de Amistad</th>
+      <th></th>
+    </tr>
+    {% for amigos in amigos %}
+    <tr>
+      <td>{{ amigos.id }}</td>
+      <td>{{ amigos.apellido }}</td>
+      <td>{{ amigos.nombre }}</td>
+      <td>{{ amigos.nivel_amistad }}</td>
+      <td>
+        <a class="btn btn-link" href="{% url 'mi_blog:editar_amigo' amigos.id %}">editar</a>
+      </td>
+      <td>
+        <form action="{% url 'mi_blog:eliminar_amigo' amigos.id %}" method="post">
+          {% csrf_token %}
+          <input type="submit" class="btn btn-link" value="eliminar"/>
+        </form>
+      </td>
+    </tr>
+    {% endfor %}
+    </tbody>
+  </table>
+{% endblock contenido %}

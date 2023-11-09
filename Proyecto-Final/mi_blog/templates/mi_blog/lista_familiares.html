@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+
+{% block titulo %}
+<title>Lista de Familiares</title>
+{% endblock titulo %}
+
+
+{% block contenido %}
+<h1 style="color:red;">
+    Bienvenidos, les saluda Arian
+</h1>
+  
+<h3>Familiares guardados:</h3>
+<table class="table">
+  <tbody>
+    <tr>
+      <th>ID</th>
+      <th>Apellido</th>
+      <th>Nombre</th>
+      <th>Parentezco</th>
+      <th></th>
+    </tr>
+    {% for familiares in familiares %}
+    <tr>
+      <td>{{ familiares.id }}</td>
+      <td>{{ familiares.apellido }}</td>
+      <td>{{ familiares.nombre }}</td>
+      <td>{{ familiares.parentesco }}</td>
+      <td>
+        <a class="btn btn-link" href="{% url 'mi_blog:editar_familiar' familiares.id %}">editar</a>
+      </td>
+      <td>
+        <form action="{% url 'mi_blog:eliminar_familiar' familiares.id %}" method="post">
+          {% csrf_token %}
+          <input type="submit" class="btn btn-link" value="eliminar"/>
+        </form>
+      </td>
+    </tr>
+    {% endfor %}
+    </tbody>
+  </table>
+{% endblock contenido %}
