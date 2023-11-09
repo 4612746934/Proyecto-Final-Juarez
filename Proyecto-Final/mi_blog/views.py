@@ -96,39 +96,6 @@ def eliminar_viaje(request, id):
         return redirect(url_exitosa)
 
 
-def editar_viaje(request, id):
-    viajes = Viajes.objects.get(id=id)
-    if request.method == "POST":
-        # Actualizacion de datos
-        form = ViajesForm(request.POST)
-
-        if form.is_valid():
-            data = form.cleaned_data
-            # modificamos el objeto en memoria RAM
-            viajes.destino = data['destino']
-            viajes.fecha_viaje = data['fecha_viaje']
-            viajes.duracion = data['duracion']
-            viajes.viajeros = data['viajeros']
-
-            # Los cambios se guardan en la Base de datos
-            viajes.save()
-
-            url_exitosa = reverse('mi_blog:lista_viajes')
-            return redirect(url_exitosa)
-    else:  # GET
-        # Descargar formulario con data actual
-        inicial = {
-            'destino': viajes.destino,
-            'fecha_viaje': viajes.fecha_viaje,
-            'duracion': viajes.duracion,
-            'viajeros': viajes.viajeros,
-        }
-        form = ViajesForm(initial=inicial)
-    return render(
-        request=request,
-        template_name='mi_blog/crear_viaje.html',
-        context={'form': form},
-    )
 
 def editar_viaje(request, id):
     viaje = Viajes.objects.get(id=id)
