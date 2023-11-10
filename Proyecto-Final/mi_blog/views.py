@@ -150,6 +150,6 @@ def editar_amigo(request, id):
 
     return render(
         request=request,
-        template_name='mi_blog/crear_amigo.html',
+        template_name='mi_blog/editar_amigo.html',
         context={'form': form},
     )
