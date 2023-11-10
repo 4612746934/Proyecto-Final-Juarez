@@ -2,10 +2,10 @@
 
 
 {% block contenido %}
-<title>Editar Amigos</title>
-<h1>Editar Amigo</h1>
+<title>Editar Viaje</title>
+<h1>Editar Viaje</h1>
 
-<form action="{% url 'mi_blog:editar_amigo' amigo_id %}" method="post">
+<form action="{% url 'mi_blog:editar_viaje' viaje_id %}" method="post">
     {% csrf_token %}
     {{form.as_p}}
     <input class="btn btn-success" type="submit" value="Guardar" />

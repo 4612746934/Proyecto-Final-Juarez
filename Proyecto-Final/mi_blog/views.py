@@ -112,8 +112,8 @@ def editar_viaje(request, id):
 
     return render(
         request=request,
-        template_name='mi_blog/crear_viaje.html',
-        context={'form': form},
+        template_name='mi_blog/editar_viaje.html',
+        context={'form': form,"viaje_id": id},
     )
 
 def editar_familiar(request, id):
@@ -131,8 +131,8 @@ def editar_familiar(request, id):
 
     return render(
         request=request,
-        template_name='mi_blog/crear_familiar.html',
-        context={'form': form},
+        template_name='mi_blog/editar_familiar.html',
+        context={'form': form,"familiar_id": id},
     )
 
 def editar_amigo(request, id):
@@ -145,11 +145,12 @@ def editar_amigo(request, id):
             form.save()
             url_exitosa = reverse('mi_blog:lista_amigos')
             return redirect(url_exitosa)
-    else:  
+    else:
         form = AmigosForm(instance=amigo)
 
     return render(
         request=request,
         template_name='mi_blog/editar_amigo.html',
-        context={'form': form},
+        context={'form': form, "amigo_id": id},
     )
+
