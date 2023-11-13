@@ -1,10 +1,15 @@
 {% extends "base.html" %}
 
 {% block titulo %}
-<title>Coderhouse 47780 - Inicio</title>
+<title>Coderhouse 47780 - Mi Blog</title>
 {% endblock titulo %}
 
 
 {% block contenido %}
-<h1>Bienvenidos a Mi Blog</h1>
+{% if user.is_authenticated %}
+<h1>Bienvenido/a {{ user.last_name }}, {{ user.first_name }}</h1>
+{% else %}
+<h1>Bienvenido/a visitante</h1>
+{% endif %}
+
 {% endblock contenido %}

@@ -5,20 +5,25 @@ from django.urls import reverse
 from django.shortcuts import render, redirect
 from .models import Familiares, Amigos, Viajes
 from .forms import FamiliaresForm, AmigosForm, ViajesForm,BusquedaForm
+from django.contrib.auth.decorators import login_required
+from django.contrib.auth.mixins import LoginRequiredMixin
 
+@login_required
 def lista_familiares(request):
     familiares = Familiares.objects.all()
     return render(request, 'mi_blog/lista_familiares.html', {'familiares': familiares})
 
-
+@login_required
 def lista_amigos(request):
     amigos = Amigos.objects.all()
     return render(request, 'mi_blog/lista_amigos.html', {'amigos': amigos})
+
 
 def lista_viajes(request):
     viajes = Viajes.objects.all()
     return render(request, 'mi_blog/lista_viajes.html', {'viajes': viajes})
 
+@login_required
 def crear_familiar(request):
     if request.method == 'POST':
         form = FamiliaresForm(request.POST)
@@ -29,6 +34,7 @@ def crear_familiar(request):
         form = FamiliaresForm()
     return render(request, 'mi_blog/crear_familiar.html', {'form': form})
 
+@login_required
 def crear_amigo(request):
     if request.method == 'POST':
         form = AmigosForm(request.POST)
@@ -39,6 +45,7 @@ def crear_amigo(request):
         form = AmigosForm()
     return render(request, 'mi_blog/crear_amigo.html', {'form': form})
 
+@login_required
 def crear_viaje(request):
     if request.method == 'POST':
         form = ViajesForm(request.POST)
@@ -64,7 +71,8 @@ def buscar(request):
     else:
         form = BusquedaForm()
         return render(request,'mi_blog/buscar.html',{'form':form})
-    
+
+@login_required    
 def eliminar_familiar(request, id):
     # obtienes el curso de la base de datos
     familiares = Familiares.objects.get(id=id)
@@ -74,7 +82,8 @@ def eliminar_familiar(request, id):
         # redireccionamos a la URL exitosa
         url_exitosa = reverse('mi_blog:lista_familiares')
         return redirect(url_exitosa)
-    
+
+@login_required    
 def eliminar_amigo(request, id):
     # obtienes el curso de la base de datos
     amigos = Amigos.objects.get(id=id)
@@ -84,7 +93,8 @@ def eliminar_amigo(request, id):
         # redireccionamos a la URL exitosa
         url_exitosa = reverse('mi_blog:lista_amigos')
         return redirect(url_exitosa)
-    
+
+@login_required    
 def eliminar_viaje(request, id):
     # obtienes el curso de la base de datos
     viajes = Viajes.objects.get(id=id)
@@ -96,7 +106,7 @@ def eliminar_viaje(request, id):
         return redirect(url_exitosa)
 
 
-
+@login_required
 def editar_viaje(request, id):
     viaje = Viajes.objects.get(id=id)
 
@@ -116,6 +126,7 @@ def editar_viaje(request, id):
         context={'form': form,"viaje_id": id},
     )
 
+@login_required
 def editar_familiar(request, id):
     familiar = Familiares.objects.get(id=id)
 
@@ -135,6 +146,7 @@ def editar_familiar(request, id):
         context={'form': form,"familiar_id": id},
     )
 
+@login_required
 def editar_amigo(request, id):
     amigo = Amigos.objects.get(id=id)
 

@@ -17,3 +17,22 @@ Este proyecto utiliza Django para crear un blog personal en español. Aquí est�
 
 - `mi_blog/models.py`: Define los modelos de datos.
 - `mi_blog/forms.py`: Define los formularios
+
+
+## Instrucciones para entrar al panel aministrativo de Django
++ En consola, crear un superuser:
+```
+python manage.py createsuperuser
+```
++ Acceder con user y password via:
+```
+127.0.0.1:8000/admin
+```
+
+# Superusuario de pruebas
+username:admin
+contraseña:1234abcd
+
+# Usuarios normales
+UsuarioPrueba
+Coder1234
