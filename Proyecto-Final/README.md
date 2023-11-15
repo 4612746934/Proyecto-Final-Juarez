@@ -1,7 +1,7 @@
 # Proyecto-Final-Juarez
 Tabajo de Practica 
 
-# Blog Personal
+# Blog Personal 
 
 Este proyecto utiliza Django para crear un blog personal en español. Aquí están las funcionalidades y dónde encontrarlas:
 
