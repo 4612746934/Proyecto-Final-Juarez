@@ -18,4 +18,6 @@ urlpatterns = [
     path("editar_familiar/<int:id>/", editar_familiar, name="editar_familiar"),
     path("editar_viaje/<int:id>/", editar_viaje, name="editar_viaje"),
     path("editar_amigo/<int:id>/", editar_amigo, name="editar_amigo"),
+    path('about/', views.about_me, name='about_me'),
+    
 ]

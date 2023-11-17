@@ -1,12 +1,13 @@
 from django.shortcuts import render
 
 # Create your views here.
-from django.urls import reverse
+from django.urls import reverse 
 from django.shortcuts import render, redirect
 from .models import Familiares, Amigos, Viajes
 from .forms import FamiliaresForm, AmigosForm, ViajesForm,BusquedaForm
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
+
 
 @login_required
 def lista_familiares(request):
@@ -166,3 +167,5 @@ def editar_amigo(request, id):
         context={'form': form, "amigo_id": id},
     )
 
+def about_me(request):  
+    return render(request, 'mi_blog/about_me.html')

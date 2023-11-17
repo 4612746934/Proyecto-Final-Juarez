@@ -31,3 +31,7 @@ class Viajes(models.Model):
 
     def __str__(self):
         return f"{self.destino}, {self.fecha_viaje}, {self.viajeros},{self.duracion}"
+
+
+
+    
