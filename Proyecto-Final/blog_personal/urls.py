@@ -20,6 +20,7 @@ from blog_personal.views import saludar_con_html
 from django.conf import settings
 from django.conf.urls.static import static
 
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('blog/', include('mi_blog.urls')),

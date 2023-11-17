@@ -12,3 +12,4 @@ class Avatar(models.Model):
     def __str__(self):
         return f"Avatar de: {self.user}"
 
+

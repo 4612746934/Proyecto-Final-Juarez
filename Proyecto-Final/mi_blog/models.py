@@ -34,4 +34,3 @@ class Viajes(models.Model):
 
 
 
-    
