@@ -34,5 +34,5 @@ username:usuario1
 contraseña:coder1234
 
 # Usuarios normales
-UsuarioPrueba
-Coder1234
+username:UsuarioPrueba
+contraseña:Coder1234
