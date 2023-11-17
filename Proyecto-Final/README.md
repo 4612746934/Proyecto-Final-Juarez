@@ -12,6 +12,7 @@ Este proyecto utiliza Django para crear un blog personal en español. Aquí est�
 5. Crear un Amigo: Acceda a `/amigos/crear/` para agregar un amigo.
 6. Crear un Viaje: Acceda a `/viajes/crear/` para agregar un viaje.
 7. Búsqueda en la Base de Datos: Acceda a `/buscar/` para buscar en las clases de modelos.
+8. Acerca de mi: Acceda a about/ para ver informacion sobre mi.
 
 ## Estructura de Carpetas
 
@@ -28,7 +29,11 @@ python manage.py createsuperuser
 ```
 127.0.0.1:8000/admin
 ```
-
+## Instrucciones para correr el programa
++ En consola, ejecutar el siguiente comando:
+```
+python manage.py runserver
+```
 # Superusuario de pruebas
 username:usuario1
 contraseña:coder1234
